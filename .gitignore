@@ -13,10 +13,3 @@ test-results/
 deployment-rendered.yaml
 storage-demo/
 note.txt
-ansible/generated/
-.terraform/
-*.tfstate
-*.tfstate.*
-*.tfplan
-tfplan
-crash.log

@@ -1,0 +1,10 @@
+Local checks - 18 November 2026
+Rishav | 2301730245
+
+Python 3.14.5: 6 unit tests passed.
+Docker Compose: build and startup passed.
+GET / and GET /health returned the student details and UP status.
+GET /visits incremented a real Redis counter across two requests.
+Compose and Kubernetes YAML parsed successfully.
+GitHub Actions: Python 3.12 tests and Docker build passed.
+Kubernetes rollout and Jenkins publishing require a configured cluster and agent.
