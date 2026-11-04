@@ -8,6 +8,8 @@ pipeline {
     parameters {
         booleanParam(name: 'DEPLOY', defaultValue: false,
                      description: 'Publish to GHCR and deploy to the configured cluster')
+        choice(name: 'DEPLOY_TARGET', choices: ['registry', 'kind'],
+               description: 'Publish to GHCR or load the image into the local kind cluster')
     }
     environment {
         IMAGE_REPO = 'ghcr.io/rishav23av/devops-lab-2'
@@ -31,7 +33,7 @@ pipeline {
             }
         }
         stage('Publish image') {
-            when { expression { params.DEPLOY } }
+            when { expression { params.DEPLOY && params.DEPLOY_TARGET == 'registry' } }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'github-packages',
                                  usernameVariable: 'REGISTRY_USER', passwordVariable: 'REGISTRY_TOKEN')]) {
@@ -50,6 +52,9 @@ docker push "$IMAGE_REPO:$BUILD_NUMBER"
             steps {
                 sh '''#!/usr/bin/env bash
 set -euo pipefail
+if [ "$DEPLOY_TARGET" = "kind" ]; then
+    kind load docker-image "$IMAGE_REPO:$BUILD_NUMBER" --name rishav-devops
+fi
 kubectl apply -f k8s/configmap.yaml -f k8s/service.yaml
 kubectl set image --local -f k8s/deployment.yaml lab2-app="$IMAGE_REPO:$BUILD_NUMBER" -o yaml > deployment-rendered.yaml
 kubectl apply -f deployment-rendered.yaml

@@ -25,7 +25,7 @@ is at the repository root, which is the build context.
 docker stop rishav-lab2-demo
 docker start rishav-lab2-demo
 docker rm -f rishav-lab2-demo
-docker compose -f docker/docker-compose.yml up -d --build
+docker compose -f docker/docker-compose.yml up -d --build --wait
 docker compose -f docker/docker-compose.yml ps
 curl --fail http://localhost:5002/visits
 ```
@@ -117,6 +117,11 @@ push or configure a Kubernetes image pull secret for a private package.
 Each build gets a separate image tag. The deployment stage renders that tag into
 the manifest before applying it, then waits for the rollout. The default build
 only tests and builds the image.
+
+For a local kind exercise, create a cluster with `kind create cluster --name
+rishav-devops`, configure the Jenkins user's kubeconfig and select
+`DEPLOY=true`, `DEPLOY_TARGET=kind`. The job loads its image into the node and
+performs the same rollout. This option does not use the registry credential.
 
 **8–9. Record and explanation**
 

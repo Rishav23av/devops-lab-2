@@ -10,7 +10,7 @@ and the Kubernetes manifests run two app replicas with health probes.
 **Run with Docker**
 
 ```bash
-docker compose -f docker/docker-compose.yml up -d --build
+docker compose -f docker/docker-compose.yml up -d --build --wait
 curl http://localhost:5002/
 curl http://localhost:5002/visits
 docker compose -f docker/docker-compose.yml down
@@ -45,3 +45,7 @@ python -m pytest tests/ -v
 The Jenkinsfile tests and builds the image. Enable `DEPLOY` after adding the
 registry credential and cluster access described in [docs/lab-record.md](docs/lab-record.md).
 GitHub Actions runs tests and builds the Docker image on each push.
+
+The same manifests also work with kind. Create a cluster named `rishav-devops`
+and choose `DEPLOY_TARGET=kind` in Jenkins to load the image locally, without
+a registry push. The agent needs kind, Docker and a kubeconfig for that cluster.
