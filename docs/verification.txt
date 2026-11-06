@@ -7,4 +7,10 @@ GET / and GET /health returned the student details and UP status.
 GET /visits incremented a real Redis counter across two requests.
 Compose and Kubernetes YAML parsed successfully.
 GitHub Actions: Python 3.12 tests and Docker build passed.
-Kubernetes rollout and Jenkins publishing require a configured cluster and agent.
+Jenkins 2.580.2 build 2: SUCCESS, including image loading and a kind deployment.
+Kubernetes: two ready replicas; scaling to four and back to two passed.
+Rolling update returned version 2.0.3; rollback restored version 2.0.2.
+Redis retained its counter across container removal and recreation.
+A local registry push and registry catalog lookup passed.
+GHCR and Docker Hub publishing remain credential-based options.
+Nine real run screenshots and nine question-wise PDF reports are included.

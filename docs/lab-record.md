@@ -41,6 +41,15 @@ docker tag devops-lab2-app:2.0.0 YOUR_DOCKERHUB_ID/devops-lab2-app:2.0.0
 docker push YOUR_DOCKERHUB_ID/devops-lab2-app:2.0.0
 ```
 
+The recorded run used a local registry for the image push:
+
+```bash
+docker run -d --name rishav-lab2-registry -p 127.0.0.1:5005:5000 registry:2
+docker tag devops-lab2-app:2.0.0 localhost:5005/rishav/devops-lab2-app:2.0.0
+docker push localhost:5005/rishav/devops-lab2-app:2.0.0
+curl http://localhost:5005/v2/_catalog
+```
+
 **3. Storage**
 
 Call `/visits` a few times, run `docker compose -f docker/docker-compose.yml down`,
@@ -128,8 +137,9 @@ performs the same rollout. This option does not use the registry credential.
 The files demonstrate image layers, container lifecycle, persistent storage,
 service discovery, orchestration and continuous deployment. Docker manages the
 individual containers; Kubernetes reconciles replicas and updates. The source
-includes commands to repeat each exercise. A local Kubernetes rollout or Jenkins
-deployment must be run against a configured cluster and agent.
+includes commands to repeat each exercise. The recorded rollout used a kind
+cluster and a Jenkins agent running in Docker. See `docs/commands/` for the
+deployment, scaling, rolling update and rollback output.
 
 Cleanup for this lab:
 

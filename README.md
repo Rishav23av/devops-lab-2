@@ -49,3 +49,9 @@ GitHub Actions runs tests and builds the Docker image on each push.
 The same manifests also work with kind. Create a cluster named `rishav-devops`
 and choose `DEPLOY_TARGET=kind` in Jenkins to load the image locally, without
 a registry push. The agent needs kind, Docker and a kubeconfig for that cluster.
+
+**Reports and screenshots**
+
+[Question-wise PDF reports](reports/README.md) | [Run screenshots](docs/screenshots/README.md) | [Command output](docs/commands/)
+
+![Lab 2 run](docs/screenshots/q5-kubernetes-deployment.jpg)
