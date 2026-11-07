@@ -1,0 +1,24 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ kubectl get nodes
+NAME                          STATUS   ROLES           AGE   VERSION
+rishav-devops-control-plane   Ready    control-plane   5m    v1.37.0
+
+
+$ kubectl get deployment,pods,services
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/lab2-app   2/2     2            2           2m47s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/lab2-app-6b75b6575c-ktzcl   1/1     Running   0          2m47s
+pod/lab2-app-6b75b6575c-wkkcr   1/1     Running   0          2m47s
+
+NAME                       TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes         ClusterIP   10.96.0.1      <none>        443/TCP          4m59s
+service/lab2-app-service   NodePort    10.96.61.118   <none>        5000:30080/TCP   2m47s
+
+
+$ kubectl get --raw /api/v1/namespaces/default/services/lab2-app-service:5000/proxy/
+{"message":"Rishav's DevOps Lab 2 on Kubernetes","name":"Rishav","roll_no":"2301730245","version":"2.0.2"}

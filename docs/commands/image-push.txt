@@ -1,0 +1,49 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ docker push localhost:5005/rishav/devops-lab2-app:2.0.0
+The push refers to repository [localhost:5005/rishav/devops-lab2-app]
+acd43e9bebc3: Waiting
+0373269344dc: Waiting
+92e438ca5b21: Waiting
+44136fa355b3: Waiting
+0373269344dc: Waiting
+92e438ca5b21: Waiting
+44136fa355b3: Waiting
+acd43e9bebc3: Waiting
+0373269344dc: Waiting
+92e438ca5b21: Waiting
+44136fa355b3: Waiting
+acd43e9bebc3: Waiting
+0373269344dc: Waiting
+92e438ca5b21: Waiting
+44136fa355b3: Waiting
+acd43e9bebc3: Waiting
+0373269344dc: Waiting
+92e438ca5b21: Waiting
+44136fa355b3: Waiting
+acd43e9bebc3: Waiting
+0373269344dc: Waiting
+92e438ca5b21: Waiting
+44136fa355b3: Waiting
+acd43e9bebc3: Waiting
+0373269344dc: Layer already exists
+70b4f81c82dc: Layer already exists
+2ebbc88003a2: Layer already exists
+81f680669fbc: Layer already exists
+92e438ca5b21: Already exists
+44136fa355b3: Already exists
+acd43e9bebc3: Layer already exists
+7720a5102944: Layer already exists
+0ba3a3e89cd9: Layer already exists
+1a7e82d6ec03: Layer already exists
+2.0.0: digest: sha256:1841ce41d4567c9e5b7b25d21a440c5e4c63dae24488a7e818ad6a5389d47800 size: 856
+
+
+$ curl --fail http://localhost:5005/v2/_catalog
+{"repositories":["rishav/devops-lab2-app"]}
+
+
+$ curl --fail http://localhost:5005/v2/rishav/devops-lab2-app/tags/list
+{"name":"rishav/devops-lab2-app","tags":["2.0.0"]}
