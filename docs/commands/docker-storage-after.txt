@@ -1,0 +1,10 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ docker compose exec redis redis-cli GET lab2:visits
+2
+
+
+$ curl --fail http://localhost:5002/visits
+{"visits":3}

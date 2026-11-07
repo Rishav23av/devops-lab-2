@@ -1,0 +1,15 @@
+Rishav | Roll no. 2301730245
+18 November 2026
+
+$ docker compose exec redis redis-cli GET lab2:visits
+3
+
+$ docker compose down
+$ docker compose up -d --wait
+Both commands completed successfully.
+
+$ docker compose exec redis redis-cli GET lab2:visits
+3
+
+The counter was preserved after both containers were removed and recreated.
+The named volume rishav-lab2_visits was retained.

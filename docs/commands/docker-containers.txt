@@ -1,0 +1,28 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ docker compose -f docker/docker-compose.yml ps
+NAME                  IMAGE                   COMMAND                  SERVICE   CREATED         STATUS                   PORTS
+rishav-lab2-redis-1   redis:7-alpine          "docker-entrypoint.s…"   redis     4 minutes ago   Up 4 minutes (healthy)   6379/tcp
+rishav-lab2-web-1     devops-lab2-app:2.0.0   "gunicorn --bind 0.0…"   web       4 minutes ago   Up 4 minutes             127.0.0.1:5002->5000/tcp
+
+
+$ docker image inspect devops-lab2-app:2.0.0 --format "Image={{.Id}} User={{.Config.User}}"
+Image=sha256:1841ce41d4567c9e5b7b25d21a440c5e4c63dae24488a7e818ad6a5389d47800 User=appuser
+
+
+$ docker compose -f docker/docker-compose.yml exec web id
+uid=10001(appuser) gid=10001(appuser) groups=10001(appuser)
+
+
+$ curl --fail http://localhost:5002/health
+{"status":"UP","version":"2.0.0"}
+
+
+$ curl --fail http://localhost:5002/visits
+{"visits":1}
+
+
+$ docker compose exec web python -c 'import socket; print(socket.gethostbyname("redis"))'
+redis resolves to 172.19.0.2

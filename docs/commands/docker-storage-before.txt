@@ -1,0 +1,25 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ docker compose exec redis redis-cli GET lab2:visits
+1
+
+
+$ docker volume inspect rishav-lab2_visits
+[
+    {
+        "CreatedAt": "2026-11-17T21:38:49Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "cf7e4207f6903a721b3b8d48c018a223c21d5bda6c92d9919577d821f1f03653",
+            "com.docker.compose.project": "rishav-lab2",
+            "com.docker.compose.version": "5.6.1",
+            "com.docker.compose.volume": "visits"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/rishav-lab2_visits/_data",
+        "Name": "rishav-lab2_visits",
+        "Options": null,
+        "Scope": "local"
+    }
+]
