@@ -50,11 +50,13 @@ docker push "$IMAGE_REPO:$BUILD_NUMBER"
         stage('Deploy') {
             when { expression { params.DEPLOY } }
             steps {
+                script {
+                    if (params.DEPLOY_TARGET == 'kind') {
+                        sh 'kind load docker-image "$IMAGE_REPO:$BUILD_NUMBER" --name rishav-devops'
+                    }
+                }
                 sh '''#!/usr/bin/env bash
 set -euo pipefail
-if [ "$DEPLOY_TARGET" = "kind" ]; then
-    kind load docker-image "$IMAGE_REPO:$BUILD_NUMBER" --name rishav-devops
-fi
 kubectl apply -f k8s/configmap.yaml -f k8s/service.yaml
 kubectl set image --local -f k8s/deployment.yaml lab2-app="$IMAGE_REPO:$BUILD_NUMBER" -o yaml > deployment-rendered.yaml
 kubectl apply -f deployment-rendered.yaml
