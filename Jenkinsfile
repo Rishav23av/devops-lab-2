@@ -6,9 +6,9 @@ pipeline {
     }
     triggers { pollSCM('H/5 * * * *') }
     parameters {
-        booleanParam(name: 'DEPLOY', defaultValue: false,
-                     description: 'Publish to GHCR and deploy to the configured cluster')
-        choice(name: 'DEPLOY_TARGET', choices: ['registry', 'kind'],
+        booleanParam(name: 'DEPLOY', defaultValue: true,
+                     description: 'Deploy after the tests and image build pass')
+        choice(name: 'DEPLOY_TARGET', choices: ['kind', 'registry'],
                description: 'Publish to GHCR or load the image into the local kind cluster')
     }
     environment {
