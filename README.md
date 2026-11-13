@@ -42,8 +42,9 @@ pip install -r requirements-dev.txt
 python -m pytest tests/ -v
 ```
 
-The Jenkinsfile tests and builds the image. Enable `DEPLOY` after adding the
-registry credential and cluster access described in [docs/lab-record.md](docs/lab-record.md).
+The default Jenkins build tests, builds and deploys to the configured kind cluster.
+Set `DEPLOY=false` for a test/build run. Choose `DEPLOY_TARGET=registry` after
+adding the registry credential and cluster access described in [docs/lab-record.md](docs/lab-record.md).
 GitHub Actions runs tests and builds the Docker image on each push.
 
 The same manifests also work with kind. Create a cluster named `rishav-devops`
@@ -52,6 +53,8 @@ a registry push. The agent needs kind, Docker and a kubeconfig for that cluster.
 
 **Reports and screenshots**
 
+[Submission map](docs/submission-checklist.md)
+
 [Question-wise PDF reports](reports/README.md) | [Run screenshots](docs/screenshots/README.md) | [Command output](docs/commands/)
 
-![Lab 2 run](docs/screenshots/q5-kubernetes-deployment.jpg)
+![Lab 2 run](docs/screenshots/q5-minikube-deployment.jpg)

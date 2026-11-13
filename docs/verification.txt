@@ -1,16 +1,13 @@
-Local checks - 18 November 2026
-Rishav | 2301730245
+Submission checks - 18 November 2026
+Rishav | Roll no. 2301730245
 
-Python 3.14.5: 6 unit tests passed.
-Docker Compose: build and startup passed.
-GET / and GET /health returned the student details and UP status.
-GET /visits incremented a real Redis counter across two requests.
-Compose and Kubernetes YAML parsed successfully.
-GitHub Actions: Python 3.12 tests and Docker build passed.
-Jenkins 2.580.2 build 2: SUCCESS, including image loading and a kind deployment.
-Kubernetes: two ready replicas; scaling to four and back to two passed.
-Rolling update returned version 2.0.3; rollback restored version 2.0.2.
-Redis retained its counter across container removal and recreation.
-A local registry push and registry catalog lookup passed.
-GHCR and Docker Hub publishing remain credential-based options.
-Nine real run screenshots and nine question-wise PDF reports are included.
+6 application tests passed.
+Docker container, image layers, Compose and local registry push verified.
+Container-layer data loss, named volume and bind mount verified.
+Container-name and container-IP communication verified.
+Minikube 1.39.0: manifests applied and two application replicas ready.
+kind: scaling to four and back, rolling update and rollback verified.
+Jenkins SCM-triggered build 2 delivered its image to kind successfully.
+
+15 real screenshots; 9 question-wise PDF reports.
+The screenshot and command-output dates record actual runs.

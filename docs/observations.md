@@ -11,3 +11,8 @@ Rishav | Roll no. 2301730245
 - The manifests were exercised with kind on Docker Desktop; Minikube instructions remain in the README.
 
 See [screenshots](screenshots/README.md), [command output](commands/) and [reports](../reports/README.md).
+
+The additional Minikube run verified the requested two-replica deployment on
+Minikube 1.39.0. The storage exercise now records all three storage lifetimes,
+and network pings passed by both container name and IP. A later Jenkins run was
+started automatically by an SCM change and completed deployment.

@@ -119,13 +119,12 @@ rollback also restores the reported version.
 Create a Jenkins Pipeline job using this repository's `Jenkinsfile`. The agent
 needs Python, Docker and kubectl. Configure cluster access for the Jenkins user.
 Add a username/password credential named `github-packages`: username
-`Rishav23av`, password a GitHub token with package write access. Enable `DEPLOY`
-when the job is ready to publish. Make the GHCR package public after the first
+`Rishav23av`, password a GitHub token with package write access. Select `DEPLOY_TARGET=registry` for a credentialed registry deployment. Make the GHCR package public after the first
 push or configure a Kubernetes image pull secret for a private package.
 
 Each build gets a separate image tag. The deployment stage renders that tag into
-the manifest before applying it, then waits for the rollout. The default build
-only tests and builds the image.
+the manifest before applying it, then waits for the rollout. The default build deploys to the configured kind cluster. Set `DEPLOY=false`
+for a test/build run.
 
 For a local kind exercise, create a cluster with `kind create cluster --name
 rishav-devops`, configure the Jenkins user's kubeconfig and select
@@ -147,3 +146,14 @@ Cleanup for this lab:
 docker compose -f docker/docker-compose.yml down
 kubectl delete -f k8s/
 ```
+
+**Recorded Minikube run**
+
+Minikube 1.39.0 was started with its Docker driver. The same manifests were applied
+to that separate cluster, and both app replicas became ready. Its service proxy
+returned the app message, Rishav, roll number 2301730245 and version 2.0.0.
+The recorded Jenkins delivery, rolling update and rollback used kind; the
+Minikube run separately covers the requested Minikube deployment exercise.
+
+The storage record also includes container-layer loss and bind-mount persistence.
+The network record includes pings by both container name and container IP.
