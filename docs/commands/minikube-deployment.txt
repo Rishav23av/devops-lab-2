@@ -1,0 +1,38 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ minikube version
+minikube version: v1.39.0
+commit: 7a9f6a841470a207de8cf4bafcccee0969d8ba10
+
+
+$ minikube status --profile=rishav-lab2
+rishav-lab2
+type: Control Plane
+host: Running
+kubelet: Running
+apiserver: Running
+kubeconfig: Configured
+
+
+$ kubectl get nodes
+NAME          STATUS   ROLES           AGE    VERSION
+rishav-lab2   Ready    control-plane   4m9s   v1.37.0
+
+
+$ kubectl get deployment,pods,services
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/lab2-app   2/2     2            2           2m41s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/lab2-app-7f5cb88449-pg552   1/1     Running   0          2m41s
+pod/lab2-app-7f5cb88449-xbvvb   1/1     Running   0          2m41s
+
+NAME                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes         ClusterIP   10.96.0.1        <none>        443/TCP          4m7s
+service/lab2-app-service   NodePort    10.100.186.116   <none>        5000:30080/TCP   2m41s
+
+
+$ kubectl get --raw /api/v1/namespaces/default/services/lab2-app-service:5000/proxy/
+{"message":"Rishav's DevOps Lab 2 on Kubernetes","name":"Rishav","roll_no":"2301730245","version":"2.0.0"}

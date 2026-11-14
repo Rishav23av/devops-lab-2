@@ -1,0 +1,24 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ docker history --format "{{.CreatedBy}} | {{.Size}}" devops-lab2-app:2.0.0
+CMD ["gunicorn" "--bind" "0.0.0.0:5000" "--w… | 0B
+EXPOSE [5000/tcp] | 0B
+USER appuser | 0B
+COPY app/ ./ # buildkit | 20.5kB
+RUN |1 APP_VERSION=2.0.0 /bin/sh -c pip inst… | 14.6MB
+COPY app/requirements.txt ./requirements.txt… | 16.4kB
+WORKDIR /srv/app | 12.3kB
+ENV APP_VERSION=2.0.0 PYTHONDONTWRITEBYTECOD… | 0B
+ARG APP_VERSION=2.0.0 | 0B
+CMD ["python3"] | 0B
+RUN /bin/sh -c set -eux;  for src in idle3 p… | 16.4kB
+RUN /bin/sh -c set -eux;   savedAptMark="$(a… | 44.7MB
+ENV PYTHON_SHA256=b5796915dc45ff745cfb4e990a… | 0B
+ENV PYTHON_VERSION=3.12.16 | 0B
+ENV GPG_KEY=7169605F62C751356D054A26A821E680… | 0B
+RUN /bin/sh -c set -eux;  apt-get update;  a… | 4.97MB
+ENV LANG=C.UTF-8 | 0B
+ENV PATH=/usr/local/bin:/usr/local/sbin:/usr… | 0B
+# debian.sh --arch 'arm64' out/ 'trixie' '@1… | 110MB

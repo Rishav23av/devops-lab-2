@@ -1,0 +1,34 @@
+DevOps Lab 2
+Rishav | Roll no. 2301730245
+Captured on 18 November 2026
+
+$ docker run --name rishav-layer-loss redis:7-alpine sh -c "echo temporary > /note.txt; cat /note.txt"
+temporary
+
+
+$ docker rm rishav-layer-loss
+rishav-layer-loss
+
+
+$ docker run --rm redis:7-alpine sh -c "test ! -f /note.txt && echo absent"
+Container-layer note is absent in the new container
+
+
+$ docker run --rm -v rishav-lab2-storage:/data redis:7-alpine sh -c "echo named-volume-data > /data/note.txt"
+
+
+
+$ docker run --rm -v rishav-lab2-storage:/data redis:7-alpine cat /data/note.txt
+named-volume-data
+
+
+$ docker run --rm -v "$LAB_DATA_DIR:/data" redis:7-alpine sh -c "echo bind-mount-data > /data/note.txt"
+
+
+
+$ cat "$LAB_DATA_DIR/note.txt"
+bind-mount-data
+
+
+$ docker run --rm -v "$LAB_DATA_DIR:/data" redis:7-alpine cat /data/note.txt
+bind-mount-data
