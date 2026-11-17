@@ -2,40 +2,64 @@
 
 Rishav | Roll no. 2301730245
 
-Captured from the local lab runs. The browser pages show the running tools and apps. Screenshots headed "Saved command output" show the stdout saved in [docs/commands](../commands/) from those runs.
+Captured from the actual local runs. Saved-command-output pages show the stdout kept in [command records](../commands/).
 
-**Git and tests**
+**q0 git and tests**
 
-![Git and tests](q0-git-and-tests.jpg)
+![q0 git and tests](q0-git-and-tests.jpg)
 
-**Container app**
+**q1 container app**
 
-![Container app](q1-container-app.jpg)
+![q1 container app](q1-container-app.jpg)
 
-**Docker containers**
+**q1 image layers**
 
-![Docker containers](q2-docker-containers.jpg)
+![q1 image layers](q1-image-layers.jpg)
 
-**Image push**
+**q2 docker containers**
 
-![Image push](q2-image-push.jpg)
+![q2 docker containers](q2-docker-containers.jpg)
 
-**Storage**
+**q2 image push**
 
-![Storage](q3-storage.jpg)
+![q2 image push](q2-image-push.jpg)
 
-**Kubernetes deployment**
+**q3 storage complete**
 
-![Kubernetes deployment](q5-kubernetes-deployment.jpg)
+![q3 storage complete](q3-storage-complete.jpg)
 
-**Kubernetes scaling**
+**q3 storage**
 
-![Kubernetes scaling](q6-kubernetes-scaling.jpg)
+![q3 storage](q3-storage.jpg)
 
-**Rolling update**
+**q4 network name ip**
 
-![Rolling update](q6-rolling-update.jpg)
+![q4 network name ip](q4-network-name-ip.jpg)
 
-**Jenkins stages**
+**q5 kubernetes deployment**
 
-![Jenkins stages](q7-jenkins-stages.jpg)
+![q5 kubernetes deployment](q5-kubernetes-deployment.jpg)
+
+**q5 minikube deployment**
+
+![q5 minikube deployment](q5-minikube-deployment.jpg)
+
+**q6 kubernetes scaling**
+
+![q6 kubernetes scaling](q6-kubernetes-scaling.jpg)
+
+**q6 rolling update**
+
+![q6 rolling update](q6-rolling-update.jpg)
+
+**q7 jenkins stages**
+
+![q7 jenkins stages](q7-jenkins-stages.jpg)
+
+**q7 scm build**
+
+![q7 scm build](q7-scm-build.jpg)
+
+**q7 scm trigger**
+
+![q7 scm trigger](q7-scm-trigger.jpg)
